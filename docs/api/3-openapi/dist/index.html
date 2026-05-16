@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inés Fuentes Sistema de Reservas - Swagger UI</title>
+  <link rel="stylesheet" type="text/css" href="./swagger-ui-dist/swagger-ui.css" />
+  <link rel="icon" type="image/png" href="./swagger-ui-dist/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="./swagger-ui-dist/favicon-16x16.png" sizes="16x16" />
+  <style>
+    html
+    {
+      box-sizing: border-box;
+      overflow: -moz-scrollbars-vertical;
+      overflow-y: scroll;
+    }
+    *,
+    *:before,
+    *:after
+    {
+      box-sizing: inherit;
+    }
+
+    body
+    {
+      margin:0;
+      background: #fafafa;
+    }
+  </style>
+</head>
+<body>
+<div id="swagger-ui"></div>
+
+<script src="./swagger-ui-dist/swagger-ui-bundle.js" charset="UTF-8"> </script>
+<script src="./swagger-ui-dist/swagger-ui-standalone-preset.js" charset="UTF-8"> </script>
+<script>
+  window.onload = function() {
+    // Begin Swagger UI call region
+    const ui = SwaggerUIBundle({
+      spec: {
+  "openapi": "3.0.3",
+  "info": {
+    "title": "API de Sistema de gestion de Reservas, Inés F.",
+    "description": "API simple para gestion de reservas para la asignatura de lenguajes de marcas y sistemmas de gestion de informacion y proyecto integrado de Inés Fuentes",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api/v1",
+      "description": "Servidor local de desarrollo"
+    }
+  ],
+  "paths": {
+    "/reservas": {
+      "get": {
+        "summary": "Listar todas las reservas",
+        "description": "Devuelve la lista completa de reservas.",
+        "responses": {
+          "200": {
+            "description": "Lista de reservas obtenida correctamente.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Reserva"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Crear una nueva reserva",
+        "description": "Crea una nueva reserva.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReservaInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Reserva creada correctamente.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Reserva"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Datos de entrada inválidos.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reservas/{id_recurso}/{id_reserva_local}": {
+      "get": {
+        "summary": "Obtener una reserva concreta",
+        "description": "Devuelve los datos de una reserva concreta.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id_recurso",
+            "required": true,
+            "description": "ID del recurso al que pertenece la reserva.",
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          },
+          {
+            "in": "path",
+            "name": "id_reserva_local",
+            "required": true,
+            "description": "Número de reserva local dentro de ese recurso.",
+            "schema": {
+              "type": "integer",
+              "example": 3
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Reserva encontrada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Reserva"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Reserva no encontrada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Modificar una reserva",
+        "description": "Actualiza parcialmente una reserva existente.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id_recurso",
+            "required": true,
+            "description": "ID del recurso al que pertenece la reserva.",
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          },
+          {
+            "in": "path",
+            "name": "id_reserva_local",
+            "required": true,
+            "description": "Número de reserva local dentro de ese recurso.",
+            "schema": {
+              "type": "integer",
+              "example": 3
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReservaInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Reserva actualizada correctamente.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Reserva"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Datos de entrada inválidos.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Reserva no encontrada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Eliminar una reserva",
+        "description": "Elimina una reserva existente de forma permanente.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id_recurso",
+            "required": true,
+            "description": "ID del recurso al que pertenece la reserva.",
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          },
+          {
+            "in": "path",
+            "name": "id_reserva_local",
+            "required": true,
+            "description": "Número de reserva local dentro de ese recurso.",
+            "schema": {
+              "type": "integer",
+              "example": 3
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Reserva eliminada correctamente. Sin contenido en la respuesta."
+          },
+          "404": {
+            "description": "Reserva no encontrada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Reserva": {
+        "type": "object",
+        "properties": {
+          "id_recurso": {
+            "type": "integer",
+            "description": "ID del recurso reservado.",
+            "example": 1
+          },
+          "id_reserva_local": {
+            "type": "integer",
+            "description": "Número de reserva dentro de ese recurso.",
+            "example": 3
+          },
+          "id_usuario": {
+            "type": "integer",
+            "description": "ID del usuario que realizó la reserva.",
+            "example": 6
+          },
+          "usuario_nombre": {
+            "type": "string",
+            "description": "Nombre del usuario que realizó la reserva.",
+            "example": "María Rodríguez Sánchez"
+          },
+          "recurso_nombre": {
+            "type": "string",
+            "description": "Nombre del recurso reservado.",
+            "example": "Sala de Conferencias A"
+          },
+          "recurso_ubicacion": {
+            "type": "string",
+            "nullable": true,
+            "description": "Ubicación del recurso reservado.",
+            "example": "Planta 1, Ala Este"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date",
+            "description": "Fecha de la reserva (YYYY-MM-DD). Igual o posterior a hoy.",
+            "example": "2026-03-20"
+          },
+          "hora_inicio": {
+            "type": "string",
+            "description": "Hora de inicio (HH:MM).",
+            "example": "09:00"
+          },
+          "hora_fin": {
+            "type": "string",
+            "description": "Hora de fin (HH:MM). Posterior a hora_inicio.",
+            "example": "11:00"
+          },
+          "coste": {
+            "type": "number",
+            "nullable": true,
+            "description": "Coste de la reserva en euros. Puede ser nulo si el recurso es gratuito.",
+            "example": 50
+          },
+          "numero_plazas": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Número de plazas reservadas. No puede superar la capacidad del recurso.",
+            "example": 20
+          },
+          "motivo": {
+            "type": "string",
+            "nullable": true,
+            "description": "Razón de la reserva.",
+            "example": "Reunión de equipo"
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true,
+            "description": "Notas adicionales.",
+            "example": "Necesitamos proyector"
+          }
+        }
+      },
+      "ReservaInput": {
+        "type": "object",
+        "description": "Datos que envía el cliente al crear o modificar una reserva.",
+        "required": [
+          "id_recurso",
+          "fecha",
+          "hora_inicio",
+          "hora_fin",
+          "numero_plazas"
+        ],
+        "properties": {
+          "id_recurso": {
+            "type": "integer",
+            "description": "ID del recurso que se desea reservar.",
+            "example": 1
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date",
+            "description": "Fecha de la reserva (YYYY-MM-DD). Debe ser igual o posterior a hoy.",
+            "example": "2026-03-20"
+          },
+          "hora_inicio": {
+            "type": "string",
+            "description": "Hora de inicio (HH:MM). Debe ser anterior a hora_fin.",
+            "example": "09:00"
+          },
+          "hora_fin": {
+            "type": "string",
+            "description": "Hora de fin (HH:MM). Debe ser posterior a hora_inicio.",
+            "example": "11:00"
+          },
+          "numero_plazas": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Plazas a reservar. No puede superar la capacidad del recurso.",
+            "example": 20
+          },
+          "coste": {
+            "type": "number",
+            "nullable": true,
+            "description": "Coste de la reserva en euros. Opcional, puede ser nulo.",
+            "example": 50
+          },
+          "motivo": {
+            "type": "string",
+            "nullable": true,
+            "description": "Razón de la reserva. Opcional.",
+            "example": "Reunión de equipo"
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true,
+            "description": "Notas adicionales. Opcional.",
+            "example": "Necesitamos proyector"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "description": "Modelo genérico de respuesta de error.",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Mensaje general del error.",
+            "example": "Datos de entrada inválidos"
+          },
+          "detalles": {
+            "type": "array",
+            "nullable": true,
+            "description": "Lista de errores por campo. Solo presente en errores 400.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "campo": {
+                  "type": "string",
+                  "description": "Nombre del campo que causó el error.",
+                  "example": "fecha"
+                },
+                "mensaje": {
+                  "type": "string",
+                  "description": "Descripción del problema en ese campo.",
+                  "example": "La fecha debe ser igual o posterior a hoy"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}, // Path to your OpenAPI YAML file
+      dom_id: '#swagger-ui',
+      deepLinking: true,
+      presets: [
+        SwaggerUIBundle.presets.apis,
+        SwaggerUIStandalonePreset
+      ],
+      plugins: [
+        SwaggerUIBundle.plugins.DownloadUrl
+      ],
+      layout: "StandaloneLayout"
+    });
+    // End Swagger UI call region
+
+    window.ui = ui;
+  };
+</script>
+</body>
+</html>

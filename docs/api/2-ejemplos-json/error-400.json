@@ -1,0 +1,17 @@
+{
+  "error": "Datos de entrada inválidos",
+  "detalles": [
+    {
+      "campo": "fecha",
+      "mensaje": "La fecha debe ser igual o posterior a hoy"
+    },
+    {
+      "campo": "hora_fin",
+      "mensaje": "La hora de fin debe ser posterior a la hora de inicio"
+    },
+    {
+      "campo": "numero_plazas",
+      "mensaje": "Debe ser mayor que 0 y no superar la capacidad del recurso"
+    }
+  ]
+}

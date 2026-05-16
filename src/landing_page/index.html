@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Intermodular - Reservas</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            max-width: 800px;
+            width: 100%;
+        }
+        h1 {
+            color: #2563eb;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .notice {
+            background-color: #fef2f2;
+            border-left: 4px solid #ef4444;
+            color: #991b1b;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 500;
+        }
+        h2 {
+            color: #1f2937;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        .deliverables {
+            list-style-type: none;
+            padding: 0;
+        }
+        .deliverables li {
+            background-color: #f9fafb;
+            margin-bottom: 0.75rem;
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid #e5e7eb;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .deliverables li:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        .deliverables strong {
+            color: #111827;
+        }
+        .path {
+            display: block;
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Proyecto Intermodular - Sistema de Reservas</h1>
+        
+        <div class="notice">
+            Aún no hay vista para el proyecto intermodular, pero se creará próximamente, mientras añado donde se puede encontrar cada apartado del proyecto.
+        </div>
+
+        <h2>Entregas del Proyecto</h2>
+        <ul class="deliverables">
+            <li>
+                <strong>UP2: Entrega BD – Modelo E/R</strong>
+                <span class="path">(/database/diagram E-R)</span>
+            </li>
+            <li>
+                <strong>UP4: Entrega SI – Instalación Entorno de trabajo con XAMPP</strong>
+                <span class="path">(docs/XAMPP)</span>
+            </li>
+            <li>
+                <strong>UP4: Entrega BD - Diseño lógico: El modelo relacional</strong>
+                <span class="path">(database/relational model)</span>
+            </li>
+            <li>
+                <strong>UP5: Entrega EDE - Repositorio de GitHub</strong>
+            </li>
+            <li>
+                <strong>UP5: Entrega BD - Diseño físico. El modelo físico en SQL.</strong>
+                <span class="path">(database/scripts)</span>
+            </li>
+            <li>
+                <strong>UP6: Entrega LMSGI - Web Consultora. HTML + CSS</strong>
+                <span class="path">(proyecto-consultora)</span>
+            </li>
+            <li>
+                <strong>UP9: Diseño de API REST para tu sistema de reservas</strong>
+                <span class="path">(docs/api, docs/diagrams, docs/disaster-recovery)</span>
+            </li>
+            <li>
+                <strong>UP10/11 - COPIA DE SEGURIDAD COLABORATIVA EN NAS</strong>
+                <span class="path">(database/backups)</span>
+            </li>
+            <li>
+                <strong>UP12: PROG: CRUD Reservas</strong>
+                <span class="path">(src/app)</span>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

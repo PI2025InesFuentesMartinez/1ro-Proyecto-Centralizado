@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Astro es una empresa de tecnología que se dedica a la creación de software y hardware para la industria. Esta pagina es para ">
+    <title>Astro - Contacto</title>
+    <link rel="icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>  
+    <header>
+        <a href="index.html"><img src="img/logo_astro.png" alt="Logotipo de Astro"></a>
+        <nav>
+            <ul>
+                <li><a href="cronologia.html">Sobre nosotros</a></li>
+                <li><a href="proyecto-reservas.html">Proyecto</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="formulario-contacto">
+            <h1>Contacta con nosotros</h1>
+            <p>Rellena el siguiente formulario y nos pondremos en contacto contigo lo antes posible.</p>
+            <form action="https://morning-paper-a0fc.contry-1990.workers.dev" method="POST">
+                <label for="nombre">Nombre completo *</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="motivo">Motivo de contacto *</label>
+                <select id="motivo" name="motivo" required>
+                    <option value="">Selecciona un motivo</option>
+                    <option value="consulta">Consulta general</option>
+                    <option value="presupuesto">Solicitar presupuesto</option>
+                    <option value="soporte">Soporte técnico</option>
+                    <option value="colaboracion">Colaboración</option>
+                    <option value="otro">Otro</option>
+                </select>
+
+                
+                <label for="mensaje">Mensaje *</label>
+                <textarea id="mensaje" name="mensaje" rows="6" minlength="10" required></textarea>
+                
+                <label class="checkbox-label">
+                    <input type="checkbox" id="privacidad" name="privacidad" required>
+                    <span>Acepto la política de privacidad *</span>
+                </label>
+                
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-contenedor">
+            <div class="footer-info">
+                <img class="footer-logo" src="img/logo_astro_white.png" alt="Logotipo de Astro">
+                <p>Astro es una empresa de tecnología que se dedica a la creación de software y hardware para la industria.</p>
+                <div class="redes-sociales">
+                    <a href="#"><img src="img/Linkedin-Logo.png" alt="LinkedIn"></a>
+                    <a href="#"><img src="img/Instagram-Logo.png" alt="Instagram"></a>
+                    <a href="#"><img src="img/Twitter-Logo.png" alt="X"></a>
+                    <a href="#"><img src="img/Youtube-Logo.png" alt="YouTube"></a>
+                </div>
+            </div>
+            <div class="footer-contacto">
+                <div class="avisos-legales">
+                    <h4>Avisos legales</h4>
+                    <ul>
+                        <li><a href="#">Política de privacidad</a></li>
+                        <li><a href="#">Política de cookies</a></li>
+                        <li><a href="#">Aviso legal</a></li>
+                    </ul>
+                </div>
+                <div class="contacto">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="mailto:astro@gmail.com">astro@gmail.com</a></li>
+                        <li><a href="tel:666666666">666 666 666</a></li>
+                        <li><a href="https://maps.app.goo.gl/b9rhz5VvcQ7aS34k6">C/Severo Ochoa, 1, 03</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <p>Copyright &copy; 2025 Astro. Todos los derechos reservados Desarrollado por Inés Fuentes Martínez.</p>
+    </footer>
+</body>
+</html>

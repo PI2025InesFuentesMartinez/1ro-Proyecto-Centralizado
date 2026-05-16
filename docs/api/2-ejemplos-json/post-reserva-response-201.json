@@ -1,0 +1,15 @@
+{
+  "id_recurso": 1,
+  "id_reserva_local": 3,
+  "id_usuario": 6,
+  "usuario_nombre": "María Rodríguez Sánchez",
+  "recurso_nombre": "Sala de Conferencias A",
+  "recurso_ubicacion": "Planta 1, Ala Este",
+  "fecha": "2026-03-20",
+  "hora_inicio": "09:00",
+  "hora_fin": "11:00",
+  "coste": 50.00,
+  "numero_plazas": 20,
+  "motivo": "Reunión de equipo",
+  "observaciones": "Necesitamos proyector"
+}
