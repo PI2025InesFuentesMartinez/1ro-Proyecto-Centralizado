@@ -7,8 +7,8 @@ import java.sql.*;
  */
 public final class DBConnection {
     private static final String URL = "jdbc:mariadb://localhost:3306/sistema_reservas";
-    private static final String USERNAME = "reservas_app";
-    private static final String PASSWORD = "reservas_app";
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "root";
     private static Connection connection;
 
     private DBConnection() {
